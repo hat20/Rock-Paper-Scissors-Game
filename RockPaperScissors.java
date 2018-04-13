@@ -14,19 +14,44 @@ class RockPaperScissors
 	public static void main(String args[])
 	{
 		Scanner fp = new Scanner(System.in);
+		String ans;
 
-		System.out.println("Enter your choice");
-		System.out.println("You can choose between Rock, Paper and Scissors");
+		do{
+			System.out.println("");
+			System.out.println("******************************************************");
+			System.out.println("");
+			System.out.println("**WELCOME**");
+			System.out.println("Enter your choice");
+			System.out.println("You can choose between Rock, Paper and Scissors");
 
-		String userChoice = fp.nextLine();
-		String compChoice = decideCompChoice();
+			String userChoice = fp.nextLine();
+			while(true)
+			{	
+				if(userChoice.equalsIgnoreCase("rock")||userChoice.equalsIgnoreCase("paper")||userChoice.equalsIgnoreCase("scissors"))
+					break;
+				else
+				{	
+					System.out.println("Wrong choice, Enter again.");
+					userChoice = fp.nextLine();
+				}				
+			}	
 
-		RockPaperScissors obj = new RockPaperScissors(userChoice,compChoice);
+			String compChoice = decideCompChoice();
 
-		System.out.println("You chose -> " + userChoice);
-		System.out.println("Computer chose -> " + compChoice);
-
-		obj.result();
+			RockPaperScissors obj = new RockPaperScissors(userChoice,compChoice);
+			System.out.println("******************************************************");
+			System.out.println("");
+			System.out.println("You chose -> " + userChoice);
+			System.out.println("Computer chose -> " + compChoice);
+			System.out.println("");
+			obj.result();
+			System.out.println("");
+			System.out.println("******************************************************");
+			System.out.println("");
+			System.out.println("Do you want to play again?");
+			System.out.println("Input 'Yes' to continue and 'No' to exit");
+			ans = fp.nextLine();
+		}while(ans.equalsIgnoreCase("yes"));
 
 	}
 
